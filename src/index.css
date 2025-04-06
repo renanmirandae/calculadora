@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+}
+
+:root
+{
+    --primary-color: #dfe1e5;
+    --second-color: #a5e5ff;
+    --third-color: #01498f;
+    --fourth-color:#fd9240;
+    --fifth-color: #fff;
+    --sixth-color:#002549;
+}
