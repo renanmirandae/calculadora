@@ -1,8 +1,10 @@
+import { ButtonStyled } from "./index.style";
+
 export function Button(props)
 {
     return(
-        <button value={props.value} onClick={props.aoClicar}>
-            {props.title}
-        </button>
+        <ButtonStyled value={props.value} onClick={props.aoClicar} operador={props.operador}>
+            {props.title} 
+        </ButtonStyled>
     );
 }
