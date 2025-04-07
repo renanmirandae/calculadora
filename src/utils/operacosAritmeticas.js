@@ -12,7 +12,7 @@ const inserirResultadoParcial = (array, funcao, index) => {
 
 }
 
-
+//Essa função obtem a expressão digitada pelo usuario e calcula o resultado final
 export const calcularExpressao = (expressaoArray) => {
     const novoArray = separarOperadoresENumeros(expressaoArray);
     while (novoArray.length !== 1) {

@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const AppStyled = styled.section`
 
 margin: 2rem auto;
-width: 40vw;
+max-width: 70vw;
+min-width: 40vw;
 height: auto;
 border-radius: 15px;
 background-color: var(--third-color);
@@ -31,6 +32,7 @@ gap: 1rem;
 
 table{
     border-collapse: collapse;
+    width: 100%;
     /* border: 1px solid red; */
 }
 

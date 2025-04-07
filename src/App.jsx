@@ -12,7 +12,7 @@ function App() {
   const numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   // Armazena numeros numeros e operadores
-  const listaNumerosEOperadores = [7, 8, 9, '/', 4, 5, 6, '*', 1, 2, 3, '+', '.', 0, 'C', '-', '='];
+  const listaNumerosEOperadores = [7, 8, 9, '/', 4, 5, 6, '*', 1, 2, 3, '+', 'CE', 0, 'C', '-', '='];
 
   //Armazena os valores de cada botao incluindo os valores de operações
   const [operacao, setOperacao] = useState(0);
@@ -27,13 +27,25 @@ function App() {
   const handleButton = (e) => {
     e.preventDefault();
 
-    if (e.target.value == 'C') limparOperacao();
-    else
-      setOperacao((prev => prev + e.target.value));
+    // if (operacao == '0' && (e.target.value == '*' || e.target.value == '/' || e.target.value == '+' || e.target.value == '-') || e.target.value == 'CE') {
+    //   console.log("Nao pode fazer isso")
+    //   console.log(operacao)
+
+    // } else {
+      //Se o botao C for pressionado zera a expressão
+      if (e.target.value == 'C') limparOperacao();
+      //Cuida que quando o visor estiver zerado, quando o usuario pressionar um numero o zero nao apareça junto com o numero digitado
+      else if (operacao == 0) setOperacao(e.target.value)
+      //Quando o botao CE foi pressionado apenas a ultima entrada do usuario é apagada
+      else if (e.target.value == 'CE')
+        operacao.length == 1 ? limparOperacao() : setOperacao(operacao.slice(0, -1))
+      else
+        setOperacao((prev => prev + e.target.value));
+
   }
 
 
-  const handleCalcularExpressao = () => setOperacao(calcularExpressao(operacao))
+  const handleCalcularExpressao = () => setOperacao(calcularExpressao(operacao)[0].toString())
 
   return (
     <AppStyled>
@@ -67,6 +79,7 @@ function App() {
           </tbody>
         </table>
       </section>
+      {console.log(operacao)}
     </AppStyled>
   )
 }
